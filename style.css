@@ -1,0 +1,37 @@
+    :root{
+        --prinary-color:rgb(220, 212, 212);
+        --bg-color:#f4f4f4;
+    }
+    body{
+        font-family: 'poppins',sans-serif;
+        background-color: var(--prinary-color);
+        color:black;
+        padding: 20px;
+      }
+     header{
+        color: black;
+        background: #4facfe;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 25px;
+        
+        
+     }
+
+     main{
+        background-color: #f5f5f5;
+        padding:20px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        
+     }
+
+      ul{
+        list-style-position:inside;
+      }
+     footer{
+        text-align: center;
+        padding: 20px;
+        background: #4facfe;
+     }
