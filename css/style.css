@@ -28,19 +28,19 @@
   padding: 20px;
 }
 
-/* Hide label but keep for accessibility */
+
 .visually-hidden {
   position: absolute;
   left: -9999px;
 }
 
-/* Search box layout */
+
 .search-box {
   display: flex;
   max-width: 500px;
 }
 
-/* Input styling */
+
 .search-box input {
   flex: 1;
   padding: 10px;
@@ -51,12 +51,12 @@
   font-size: 16px;
 }
 
-/* Focus state (IMPORTANT) */
+
 .search-box input:focus {
   border-color: var(--primary-color);
 }
 
-/* Button styling */
+/
 .search-box button {
   padding: 10px 16px;
   border: 2px solid var(--primary-color);
@@ -67,12 +67,12 @@
   font-size: 16px;
 }
 
-/* Hover state */
+
 .search-box button:hover {
   opacity: 0.85;
 }
 
-/* Focus visible (Accessibility) */
+
 .search-box input:focus-visible,
 .search-box button:focus-visible {
   outline: 2px solid black;
@@ -281,4 +281,5 @@ body.no-scroll {
         text-align: center;
         padding: 20px;
         background: #4facfe;
+
      }
