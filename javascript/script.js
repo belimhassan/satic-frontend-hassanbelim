@@ -1,4 +1,3 @@
-
 console.log("day 1 task loaded");
 const toggle = document.querySelector(".menu-toggle");
 const navbar = document.querySelector(".navbar");
@@ -32,49 +31,47 @@ form.addEventListener("submit", function (event) {
     console.log("Searching for:", value);
   }
 });
-const container = document.getElementById("toast-container");
-
-function createToast(type, message) {
-  const toast = document.createElement("div");
-  toast.classList.add("toast", type);
-
-  toast.innerHTML = `
-    <span>${message}</span>
-    <button>&times;</button>
-  `;
-
-  container.appendChild(toast);
 
 
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 10);
+ document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("toast-container");
+  const successBtn = document.getElementById("success-btn");
+  const errorBtn = document.getElementById("error-btn");
 
- 
-  const autoRemove = setTimeout(() => {
-    removeToast(toast);
-  }, 3000);
+  function createToast(type, message) {
+    const toast = document.createElement("div");
+    toast.classList.add("toast", type);
 
-  
-  toast.querySelector("button").addEventListener("click", () => {
-    clearTimeout(autoRemove);
-    removeToast(toast);
+    let icon = type === "success" ? "✔️" : "⚠️";
+
+    toast.innerHTML = `
+      <span>${icon} ${message}</span>
+      <button>&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    setTimeout(() => toast.classList.add("show"), 10);
+
+    const autoRemove = setTimeout(() => removeToast(toast), 3000);
+
+    toast.querySelector("button").addEventListener("click", () => {
+      clearTimeout(autoRemove);
+      removeToast(toast);
+    });
+  }
+
+  function removeToast(toast) {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 400);
+  }
+
+  // ✅ Button events
+  successBtn.addEventListener("click", () => {
+    createToast("success", "Success: Project saved!");
   });
-}
 
-function removeToast(toast) {
-  toast.classList.remove("show");
-
-  setTimeout(() => {
-    toast.remove();
-  }, 400);
-}
-
-
-document.getElementById("success-btn").addEventListener("click", () => {
-  createToast("success", "Success: Project saved!");
-});
-
-document.getElementById("error-btn").addEventListener("click", () => {
-  createToast("error", "Error: Failed to fetch data.");
+  errorBtn.addEventListener("click", () => {
+    createToast("error", "Error: Failed to fetch data.");
+  });
 });
